@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <title>Mocha/Chai test</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="app.test.js"></script>
+    <script>mocha.setup('bdd')</script>
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-mocks/angular-mocks.js"></script>
+    <script src="../src/app.js"></script>
+
+    <script>mocha.run();</script>
+  </body>
+</html>
