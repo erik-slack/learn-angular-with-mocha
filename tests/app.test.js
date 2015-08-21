@@ -31,6 +31,8 @@ describe('Todo App', function(){
       expect(addTodo.bind(addTodo, 'false', 'false')).to.throw('Invalid parameters.');
       expect(addTodo.bind(addTodo, 1, true)).to.throw('Invalid parameters.');
       expect(addTodo.bind(addTodo, 'Test title', 1)).to.throw('Invalid parameters.');
+      expect(addTodo.bind(addTodo, [], true)).to.throw('Invalid parameters.');
+      expect(addTodo.bind(addTodo, [], [true])).to.throw('Invalid parameters.');
     });
 
     it('#addTodo: Should insert todo on todoList', function(){
@@ -52,6 +54,7 @@ describe('Todo App', function(){
       expect(removeTodo.bind(removeTodo, true)).to.throw('Invalid parameters.');
       expect(removeTodo.bind(removeTodo, 'string')).to.throw('Invalid parameters.');
       expect(removeTodo.bind(removeTodo, function(){})).to.throw('Invalid parameters.');
+      expect(removeTodo.bind(removeTodo, [])).to.throw('Invalid parameters.');
     });
 
     it('#removeTodo: Should remove todo on todoList', function(){
