@@ -14,8 +14,13 @@ describe('Todo App', function(){
     expect(control).to.not.equal(undefined);
   });
 
-  it('Must contain a number scope ($scope.number) equals to 3', function(){
-    expect(scope.number).to.equal(3);
+  it('$scope.todosList: should be an array', function(){
+    expect(scope.todosList instanceof Array).to.equal(true);
+  });
+
+  // needs id, title, completed
+  it('should insert a new todo on enter at input text', function(){
+    expect(scope.addTodo).to.be.a('function');
   });
 
 });
