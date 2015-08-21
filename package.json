@@ -1,0 +1,28 @@
+{
+  "name": "learn-angular-with-mocha",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caricati/learn-angular-with-mocha.git"
+  },
+  "keywords": [
+    "angular",
+    "mocha",
+    "jquery",
+    "chai"
+  ],
+  "dependencies": {
+    "angular": "1.4",
+    "angular-mocks": "1.4",
+    "jquery": "1.11",
+    "mocha": "2.2",
+    "chai": "3.2"
+  },
+  "author": "Thales Caricati <thales.caricati@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/caricati/learn-angular-with-mocha/issues"
+  },
+  "homepage": "https://github.com/caricati/learn-angular-with-mocha#readme"
+}
