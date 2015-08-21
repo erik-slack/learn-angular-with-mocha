@@ -1,12 +1,16 @@
 var app = angular.module('app', []);
 
 app.controller('TodoController', function($scope){
-  $scope.todosList = [];
+  $scope.todoList = [];
 
   $scope.addTodo = function(title, completed){
-    if (typeof title !== 'boolean' && typeof completed !== 'string') {
-      throw new Error('Invalid params');
+    if (typeof title !== 'string' || typeof completed !== 'boolean') {
+      throw new Error('Invalid parameters.');
     }
     
+    $scope.todoList.push({
+      title: title,
+      completed: completed
+    });
   };
 });
