@@ -9,7 +9,12 @@
     <div id="mocha"></div>
     <script src="../node_modules/chai/chai.js"></script>
     <script src="../node_modules/mocha/mocha.js"></script>
-    <script>mocha.setup('bdd')</script>
+    <script>
+      if (!mocha) {
+        console.log('You needs a mocha framework. Get it with "npm install" using npm.');
+      }
+      mocha.setup('bdd')
+    </script>
 
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/angular-mocks/angular-mocks.js"></script>
