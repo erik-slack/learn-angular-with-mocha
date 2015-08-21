@@ -15,16 +15,20 @@ describe('Todo App', function(){
       expect(control).to.not.equal(undefined);
     });
 
-    it('$scope.todosList: should be an array', function(){
+    it('#todosList: should be an array', function(){
       expect(scope.todosList instanceof Array).to.equal(true);
     });
 
     // needs id, title, completed
-    it('Should insert a new todo on enter at input text', function(){
+    it('#addTodo: Should insert a new todo on enter at input text', function(){
       expect(scope.addTodo).to.be.a('function');
     });
 
-    it('Should insert todo on todoList', function(){
+    it('#addTodo: Should validate the parameters', function(){
+      'check params';
+    });
+
+    it('#addTodo: Should insert todo on todoList', function(){
       var lengAfter = 0;
       var lengBefore = scope.todosList.length;
       scope.addTodo({
