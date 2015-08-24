@@ -57,6 +57,10 @@ describe('Todo App', function(){
       var todo = scope.todoList[scope.todoList.length - 1];
       expect(scope.removeTodo(todo)).to.be.true;
       expect(scope.removeTodo({})).to.be.false;
+      expect(scope.removeTodo(false)).to.be.false;
+      expect(scope.removeTodo(true)).to.be.false;
+      expect(scope.removeTodo(null)).to.be.false;
+      expect(scope.removeTodo(0)).to.be.false;
     });
   });
 });
