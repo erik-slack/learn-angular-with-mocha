@@ -20,10 +20,6 @@ describe('Todo App', function(){
     });
 
     // needs id, title, completed
-    it('#addTodo: Should verify the addTodo type', function(){
-      expect(scope.addTodo).to.be.a('function');
-    });
-
     it('#addTodo: Should validate the parameters', function(){
       var addTodo = scope.addTodo;
       expect(addTodo.bind(addTodo, {}, false)).to.throw('Invalid parameters.');
@@ -43,10 +39,6 @@ describe('Todo App', function(){
       expect(lengAfter - lengBefore).to.equal(1); // great! its added
     });
 
-    it('#removeTodo: Should validate if the removeTodo method is defined.', function(){
-      expect(scope.removeTodo).to.be.a('function');
-    });
-
     it('#removeTodo: Should remove todo on todoList', function(){
       var lengBefore = scope.todoList.length;
       var lengAfter;
@@ -60,9 +52,5 @@ describe('Todo App', function(){
       expect(lengBefore - lengAfter).to.equal(-1);
     });
 
-    it('#editTodo: Should be exeist edit todo method', function(){
-      expect(scope.editTodo).to.be.a('function');
-    });
-    
   });
 });
