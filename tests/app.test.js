@@ -11,16 +11,24 @@ describe('Todo App', function(){
       control = $controller('TodoController', { $scope: scope });
     }));
 
-    it('Must contain a TodoController', function(){
-      expect(control).to.not.equal(undefined);
+    it('Must contain a TodoController.', function(){
+      expect(control).to.exist;
     });
 
-    it('#todoList: should be an array', function(){
-      expect(scope.todoList instanceof Array).to.equal(true);
+    it('#todoList: should be an array.', function(){
+      expect(scope.todoList).instanceof(Array);
+    });
+
+    it('#addTodo: Should insert todo on todoList.', function(){
+      var lengAfter = 0;
+      var lengBefore = scope.todoList.length;
+      scope.addTodo('My todo test', false);
+      lengAfter = scope.todoList.length;
+      expect(lengAfter - lengBefore).to.equal(1); // great! its added
     });
 
     // needs id, title, completed
-    it('#addTodo: Should validate the parameters', function(){
+    it('#addTodo: Should validate the parameters.', function(){
       var addTodo = scope.addTodo;
       expect(addTodo.bind(addTodo, {}, false)).to.throw('Invalid parameters.');
       expect(addTodo.bind(addTodo, false, 'false')).to.throw('Invalid parameters.');
@@ -31,15 +39,7 @@ describe('Todo App', function(){
       expect(addTodo.bind(addTodo, [], [true])).to.throw('Invalid parameters.');
     });
 
-    it('#addTodo: Should insert todo on todoList', function(){
-      var lengAfter = 0;
-      var lengBefore = scope.todoList.length;
-      scope.addTodo('My todo test', false);
-      lengAfter = scope.todoList.length;
-      expect(lengAfter - lengBefore).to.equal(1); // great! its added
-    });
-
-    it('#removeTodo: Should remove todo on todoList', function(){
+    it('#removeTodo: Should remove todo on todoList.', function(){
       var lengBefore = scope.todoList.length;
       var lengAfter;
       var todo;
@@ -52,5 +52,11 @@ describe('Todo App', function(){
       expect(lengBefore - lengAfter).to.equal(-1);
     });
 
+    it('#removeTodo: Should return true if removed successfull.', function(){
+      scope.addTodo('New Todo', false);
+      var todo = scope.todoList[scope.todoList.length - 1];
+      expect(scope.removeTodo(todo)).to.be.true;
+      expect(scope.removeTodo({})).to.be.false;
+    });
   });
 });

@@ -14,10 +14,10 @@ app.controller('TodoController', function($scope){
   };
 
   $scope.removeTodo = function(todo){
-    $scope.todoList.splice($scope.todoList.indexOf(todo), 1);
+    return !!$scope.todoList.splice($scope.todoList.indexOf(todo), 1).length;
   };
 
 
-  
+
 
 });
