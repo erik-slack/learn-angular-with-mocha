@@ -1,23 +1,23 @@
 var app = angular.module('app', []);
 
 app.controller('TodoController', function($scope){
-  $scope.todoList = [];
+  var todoList = [];
+
+  $scope.getTodoList = function() {
+    return todoList;
+  };
 
   $scope.addTodo = function(title, completed){
     if (typeof title !== 'string' || typeof completed !== 'boolean')
       throw new Error('Invalid parameters.');
 
-    $scope.todoList.push({
+    todoList.push({
       title: title,
       completed: completed
     });
   };
 
   $scope.removeTodo = function(todo){
-    return !!$scope.todoList.splice($scope.todoList.indexOf(todo), 1).length;
+    return !!todoList.splice(todoList.indexOf(todo), 1).length;
   };
-
-
-
-
 });

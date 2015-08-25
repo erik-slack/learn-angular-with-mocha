@@ -16,14 +16,14 @@ describe('Todo App', function(){
     });
 
     it('#todoList: should be an array.', function(){
-      expect(scope.todoList).instanceof(Array);
+      expect(scope.getTodoList()).instanceof(Array);
     });
 
     it('#addTodo: Should insert todo on todoList.', function(){
       var lengAfter = 0;
-      var lengBefore = scope.todoList.length;
+      var lengBefore = scope.getTodoList().length;
       scope.addTodo('My todo test', false);
-      lengAfter = scope.todoList.length;
+      lengAfter = scope.getTodoList().length;
       expect(lengAfter - lengBefore).to.equal(1); // great! its added
     });
 
@@ -40,21 +40,21 @@ describe('Todo App', function(){
     });
 
     it('#removeTodo: Should remove todo on todoList.', function(){
-      var lengBefore = scope.todoList.length;
+      var lengBefore = scope.getTodoList().length;
       var lengAfter;
       var todo;
 
       scope.addTodo('Test todo', false);
 
-      lengAfter = scope.todoList.length;
-      todo = scope.todoList[lengAfter - 1]; // Last todo added
+      lengAfter = scope.getTodoList().length;
+      todo = scope.getTodoList()[lengAfter - 1]; // Last todo added
       scope.removeTodo(todo);
       expect(lengBefore - lengAfter).to.equal(-1);
     });
 
     it('#removeTodo: Should return true if removed successfull.', function(){
       scope.addTodo('New Todo', false);
-      var todo = scope.todoList[scope.todoList.length - 1];
+      var todo = scope.getTodoList()[scope.getTodoList().length - 1];
       expect(scope.removeTodo(todo)).to.be.true;
       expect(scope.removeTodo({})).to.be.false;
       expect(scope.removeTodo(false)).to.be.false;
@@ -62,5 +62,7 @@ describe('Todo App', function(){
       expect(scope.removeTodo(null)).to.be.false;
       expect(scope.removeTodo(0)).to.be.false;
     });
+
+    //it('#editTodo: Should va')
   });
 });
